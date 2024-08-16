@@ -40,6 +40,7 @@ export default function RootLayout() {
         <Stack.Screen name="register" />
         <Stack.Screen name="+not-found" />
         <Stack.Screen name="settings" />
+        <Stack.Screen name="components" />
       </Stack>
     </ThemeProvider>
   );
