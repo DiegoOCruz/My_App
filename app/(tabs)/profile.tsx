@@ -1,13 +1,10 @@
-import { AppBar } from "@/components";
-import { router } from "expo-router";
+import { Topbar } from "@/components";
 
 
 export default function ProfileScreen() {
   return (
-    <AppBar
-      title="Perfil"
-      icon="dots-vertical"
-      onPress={() => router.push("settings")}
-    />
+    <>
+      <Topbar title={"Perfil"}/>
+    </>
   );
 }

@@ -1,12 +1,22 @@
-import { Tabs } from 'expo-router';
+import { Redirect, Tabs } from 'expo-router';
 import React from 'react';
 
 import { TabBarIcon } from '@/components';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { useSession } from '../ctx';
+import { Text } from 'react-native';
 
 export default function TabLayout() {
+  const {session, isLoading} = useSession();
   const colorScheme = useColorScheme();
+
+  if (isLoading) {
+    return <Text>Loading...</Text>;
+  }
+  if (!session) {
+    return <Redirect href={'/login'} />;
+  }
 
   return (
     <Tabs
