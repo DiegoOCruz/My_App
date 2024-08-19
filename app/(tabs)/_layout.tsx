@@ -2,14 +2,16 @@ import { Redirect, Tabs } from 'expo-router';
 import React from 'react';
 
 import { TabBarIcon } from '@/components';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+//import { Colors } from '@/constants/Colors';
+//import { useColorScheme } from '@/hooks/useColorScheme';
 import { useSession } from '../ctx';
 import { Text } from 'react-native';
+import { useTheme } from 'react-native-paper';
 
 export default function TabLayout() {
   const {session, isLoading} = useSession();
-  const colorScheme = useColorScheme();
+  //const colorScheme = useColorScheme();
+  const theme = useTheme();
 
   if (isLoading) {
     return <Text>Loading...</Text>;
@@ -21,7 +23,7 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: theme.colors.primary,
         headerShown: false,
       }}>
       <Tabs.Screen
